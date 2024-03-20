@@ -1,0 +1,51 @@
+id: profile
+info:
+  name: Profile
+  author: nhthongdfvn
+  description: Test IDOR fuzzing
+
+profiles:
+  - name: profile_1
+    header:
+      Authorization: Bearer test
+      api_key: special-key
+    cookie:
+      x-cookie: test
+    query:
+      path: value example
+    data:
+      example: code example send to server
+  - name: profile_2
+    header:
+      X-auth: another api key example
+    cookie:
+      token: sdfsdfsdfsdfsd
+    query:
+      page: 1
+    data:
+      name: John Doe
+parameters:
+  value-1: 1-100
+  value-2: 1,2,3,4,5,5,6,7,8,9,10
+  value-3: max-volume
+  value-4: example 2
+  order_id: 201-230
+  user_id: 111,121,131,141,151,161,171
+decentralization:
+  - name: profile_1
+    paths:
+      - path: /pet/*
+      - path: /user/*
+      - path: /user
+  - name: profile_2
+    paths:
+      - path: /user/*
+      - path: /store/*
+      - path: /pet/*
+      - path: /pet
+      - path: /user
+unauthorized_response:
+- Unauthorized
+- Forbidden
+- Invalid
+- Fail
