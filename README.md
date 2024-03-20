@@ -19,6 +19,7 @@ $ cd SwaggerStrike
 $ go build .
 ```
 ### Usage
+![](images/5.png)
 Some notes for you: 
 - In case your swagger URL has authentication, you can use flag `cookies` and `headers` to authenticate swagger request.
 ```
@@ -55,8 +56,10 @@ We have some parts: `id`, `info`, `profiles`,`parameters`,`decentralization` and
 
 **id**
 - You can input any string. Example: "test profile"
+
 **info**
 - You need to input `name`,`author` and `description` field.
+
 **profiles**
 For each profile, we have for  each part using for authentication(or any parameter you want to add to the request). 
 We have four parts for you:
@@ -66,6 +69,7 @@ We have four parts for you:
 - `data`  : add data in body. Format: `param: value`
 
 Multi values are accepted. 
+
 **parameters**
 - According to the program, values will be assigned randomly. However, if you have specified values for the parameters, you can specify them in this section.
 - Some formats you can use:
@@ -74,12 +78,14 @@ Multi values are accepted.
 	- `111` : okay, we have no other choice... Choose your value 
 
 - All values split by `-` or `,`. 
+
 **decentralization**
 - In this section, we provide a function that allows you to check privilege escalation errors in functions based on previously set profiles.
 - Some formats you can use:
 	- **Important:** For each profile, you list all endpoint that **this profile can accessiable**
 	- You can input a specific path or wildcard part(\*) that is accepted.
 	- You only input the path, not input `target` endpoint. 
+
 **unauthorized_response**
 - This section, which contains information about the strings contained in unauthenticated requests, helps you reduce the rate of false positives. 
 
