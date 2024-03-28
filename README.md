@@ -17,36 +17,45 @@ The application is designed for:
 $ git clone https://github.com/nhthongDfVn/SwaggerStrike.git
 $ cd SwaggerStrike
 $ go build .
+$ mv main SwaggerStrike
 ```
 ### Usage
 ![](images/5.png)
 Some notes for you: 
 - In case your swagger URL has authentication, you can use flag `cookies` and `headers` to authenticate swagger request.
 ```
-swaggerStrike listall -H 'X-api-key:821398712389721823948' -C 'is_admin:false' -u "https://swagger.com/swagger" -T 'https://gw.swagger.com/api/v1/'
+swaggerStrike listall -H 'X-api-key:821398712389721823948' -C 'is_admin:false' -u "https://swagger.com/swagger" -T 'https://gw.swagger.com/api/v1'
+```
+- Set proxy with option -p 
+```
+-p http://127.0.0.1
+```
+- Set timeout with option -t 
+```
+-t 10
 ```
 - Multi flags are accepted. 
 
 CLI command line: 
 - List all status
 ```
-swaggerStrike listall -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1/'
+swaggerStrike listall -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1'
 ```
 In case you want to test with a valid or invalid token: please change the auth information in `profile.yaml`. We will use the first profile for this action
 ![](images/1.png)
 - List all unauthenticated endpoint
 ```
-swaggerStrike unauth -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1/'
+swaggerStrike unauth -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1'
 ```
 ![](images/2.png)
 - List all Insecure Direct Object References (IDOR) endpoints.
 ```
-swaggerStrike idor -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1/'
+swaggerStrike idor -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1'
 ```
 ![](images/3.png)
 - List all Broken Access Control(privilege) endpoint.
 ```
-swaggerStrike privilege -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1/'
+swaggerStrike privilege -u "https://swagger.com/swagger" -T 'https://api.swagger.com/api/v1'
 ```
 ![](images/4.png)
 ![](images/6.png)
@@ -59,6 +68,7 @@ We have some parts: `id`, `info`, `profiles`,`parameters`,`decentralization` and
 
 **info**
 - You need to input `name`,`author` and `description` field.
+
 
 **profiles**
 For each profile, we have for  each part using for authentication(or any parameter you want to add to the request). 
