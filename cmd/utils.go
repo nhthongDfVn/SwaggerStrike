@@ -258,6 +258,14 @@ func getContentBody(url string)string{
 		fmt.Println("Error sending request:", err)
 		return ""
 	}
+
+	statusCode := response.StatusCode
+
+	if statusCode != 200 {
+		fmt.Println("Invalid status code: ", statusCode)
+		return ""
+	}
+
 	defer response.Body.Close()
 
 	// Read the response body
