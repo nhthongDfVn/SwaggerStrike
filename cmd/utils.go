@@ -196,6 +196,7 @@ func fetchSwaggerURL()string{
 	
 	filename = ""
 	if strings.HasPrefix(swaggerURL,"http"){
+			checkValid()
 			if strings.HasSuffix(swaggerURL,".json"){
 			
 			openAPIString = getContentBody(swaggerURL)

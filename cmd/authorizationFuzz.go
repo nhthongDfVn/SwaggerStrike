@@ -13,7 +13,6 @@ var modeListPrivilege = &cobra.Command{
 	Short: "Testing for Broken Access Control(privilege)",
 	Long: ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		checkValid()
 		readYamlFile(ConfigFile)
 		printTitle("--------- LIST ALL PRIVILEGED ENDPOINT ---------")
 		path := fetchSwaggerURL()

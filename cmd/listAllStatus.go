@@ -15,7 +15,6 @@ var modeListAllStatus = &cobra.Command{
 	Short: "Send all requests and see the response status",
 	Long: ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		checkValid()
 		readYamlFile(ConfigFile)
 		printTitle("--------- LIST ALL STATUS ---------")
 		path := fetchSwaggerURL()

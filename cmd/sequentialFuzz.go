@@ -29,7 +29,6 @@ var modeIDORFuzz = &cobra.Command{
 	Short: "Testing for Insecure direct object references(IDOR)",
 	Long: ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		checkValid()
 		readYamlFile(ConfigFile)
 		printTitle("--------- LIST ALL IDOR ---------")
 		path := fetchSwaggerURL()

@@ -47,7 +47,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&ConfigFile, "fileConfig", "c", "profile.yaml", "Add more specific paths, separated by ,")
 	rootCmd.PersistentFlags().StringVarP(&apiTarget, "target", "T", "", "Manually set a target for the requests to be made if separate from the host the documentation resides on.")
 	rootCmd.PersistentFlags().Int64VarP(&timeout, "timeout", "t", 15, "Set the request timeout")
-	rootCmd.PersistentFlags().StringVarP(&swaggerURL, "url", "u", "", "Loads the documentation file from a URL (json, yaml format). If openAPI document in HTML format, the tool will try to parse it.")
+	rootCmd.PersistentFlags().StringVarP(&swaggerURL, "url", "u", "", "Loads the documentation file from a URL (json, yaml format) or from local file. If openAPI document in HTML format, the tool will try to parse it.")
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 
 	err := rootCmd.MarkPersistentFlagRequired("url")

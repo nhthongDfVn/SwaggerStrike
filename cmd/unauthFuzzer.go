@@ -14,7 +14,6 @@ var modeListUnAuth = &cobra.Command{
 	Short: "Testing for Bypassing Authentication Schema",
 	Long: ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		checkValid()
 		readYamlFile(ConfigFile)
 		printTitle("--------- LIST ALL UNAUTH ---------")
 		path := fetchSwaggerURL()
