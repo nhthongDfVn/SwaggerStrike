@@ -201,7 +201,15 @@ func fetchSwaggerURL()string{
 			openAPIString = getContentBody(swaggerURL)
 			} else {
 				htmlContent := getContentBody(swaggerURL)
-				openAPIString = extractSpecFromHtml(htmlContent)
+
+				_, err := json.Marshal(htmlContent)
+
+				 // check if html content is json
+			    if err == nil {
+			     openAPIString = htmlContent
+			    } else{
+			     openAPIString = extractSpecFromHtml(htmlContent)
+			    }
 			}
 			filename = "openapi_data.json"
 			os.WriteFile(filename, []byte(openAPIString), 0666)
@@ -295,6 +303,8 @@ func extractSpecFromHtml(content string )string{
 			return substring
 		}
 	}
+	printError("Can not fetch Swagger/OpenAPI document")
+    os.Exit(0)
 	return ""
 
 }
