@@ -201,12 +201,8 @@ func fetchSwaggerURL()string{
 			
 			openAPIString = getContentBody(swaggerURL)
 			} else {
-				htmlContent := getContentBody(swaggerURL)
-
-				_, err := json.Marshal(htmlContent)
-
-				 // check if html content is json
-			    if err == nil {
+			    htmlContent := getContentBody(swaggerURL)
+			    if isJSON(htmlContent) {
 			     openAPIString = htmlContent
 			    } else{
 			     openAPIString = extractSpecFromHtml(htmlContent)
@@ -363,6 +359,10 @@ func checkValid(){
 	    }
 }
 
+func isJSON(str string) bool {
+    var js json.RawMessage
+    return json.Unmarshal([]byte(str), &js) == nil
+}
 
 func printBanner() {
 	 text := `
